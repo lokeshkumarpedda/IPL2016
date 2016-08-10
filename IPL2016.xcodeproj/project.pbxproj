@@ -17,12 +17,12 @@
 		0A68C8F01D4F230300710111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A68C8EE1D4F230300710111 /* Main.storyboard */; };
 		0A68C8F21D4F230300710111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A68C8F11D4F230300710111 /* Assets.xcassets */; };
 		0A68C8F51D4F230300710111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A68C8F31D4F230300710111 /* LaunchScreen.storyboard */; };
-		0A9E2FE11D5A07AD008CD576 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E2FE01D5A07AD008CD576 /* Player.swift */; };
+		0A9E2FE11D5A07AD008CD576 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E2FE01D5A07AD008CD576 /* PlayerModel.swift */; };
+		0A9E2FE31D5A137B008CD576 /* PlayerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E2FE21D5A137B008CD576 /* PlayerInformationViewController.swift */; };
 		0AA148ED1D588F55001F6A7C /* PlayerNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA148EC1D588F55001F6A7C /* PlayerNamesViewController.swift */; };
 		0AA148F11D58AA5E001F6A7C /* PlayerNamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA148F01D58AA5E001F6A7C /* PlayerNamesViewModel.swift */; };
 		0AA1E2CF1D53777A001C2D6F /* TeamNamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1E2CE1D53777A001C2D6F /* TeamNamesViewController.swift */; };
 		0ACB48D71D55EE6A00D02BF2 /* TeamNamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB48D61D55EE6A00D02BF2 /* TeamNamesViewModel.swift */; };
-		0ACB48D91D561AAE00D02BF2 /* TeamNamesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB48D81D561AAE00D02BF2 /* TeamNamesProtocol.swift */; };
 		F4817E5B22DD10698396B60E /* Pods_IPL2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78D1566ECE4A42F35D83BA0 /* Pods_IPL2016.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,12 +39,12 @@
 		0A68C8F11D4F230300710111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A68C8F41D4F230300710111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A68C8F61D4F230300710111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A9E2FE01D5A07AD008CD576 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0A9E2FE01D5A07AD008CD576 /* PlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		0A9E2FE21D5A137B008CD576 /* PlayerInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformationViewController.swift; sourceTree = "<group>"; };
 		0AA148EC1D588F55001F6A7C /* PlayerNamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNamesViewController.swift; sourceTree = "<group>"; };
 		0AA148F01D58AA5E001F6A7C /* PlayerNamesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNamesViewModel.swift; sourceTree = "<group>"; };
 		0AA1E2CE1D53777A001C2D6F /* TeamNamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamNamesViewController.swift; sourceTree = "<group>"; };
 		0ACB48D61D55EE6A00D02BF2 /* TeamNamesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamNamesViewModel.swift; sourceTree = "<group>"; };
-		0ACB48D81D561AAE00D02BF2 /* TeamNamesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamNamesProtocol.swift; sourceTree = "<group>"; };
 		24D808035E471F59E7F60256 /* Pods-IPL2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPL2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-IPL2016/Pods-IPL2016.release.xcconfig"; sourceTree = "<group>"; };
 		9DB3385CCA62554211C68D84 /* Pods-IPL2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPL2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IPL2016/Pods-IPL2016.debug.xcconfig"; sourceTree = "<group>"; };
 		E78D1566ECE4A42F35D83BA0 /* Pods_IPL2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IPL2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +67,7 @@
 		0A2557F01D54AF0B0015310E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0ACB48D81D561AAE00D02BF2 /* TeamNamesProtocol.swift */,
-				0A9E2FE01D5A07AD008CD576 /* Player.swift */,
+				0A9E2FE01D5A07AD008CD576 /* PlayerModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,6 +136,7 @@
 			children = (
 				0AA1E2CE1D53777A001C2D6F /* TeamNamesViewController.swift */,
 				0AA148EC1D588F55001F6A7C /* PlayerNamesViewController.swift */,
+				0A9E2FE21D5A137B008CD576 /* PlayerInformationViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -299,12 +299,12 @@
 				0ACB48D71D55EE6A00D02BF2 /* TeamNamesViewModel.swift in Sources */,
 				0AA148ED1D588F55001F6A7C /* PlayerNamesViewController.swift in Sources */,
 				0A2557E81D54465B0015310E /* ResponseHandler.swift in Sources */,
+				0A9E2FE31D5A137B008CD576 /* PlayerInformationViewController.swift in Sources */,
 				0AA148F11D58AA5E001F6A7C /* PlayerNamesViewModel.swift in Sources */,
 				0A68C8EB1D4F230300710111 /* AppDelegate.swift in Sources */,
 				0AA1E2CF1D53777A001C2D6F /* TeamNamesViewController.swift in Sources */,
 				0A2557EC1D5448230015310E /* DataController.swift in Sources */,
-				0A9E2FE11D5A07AD008CD576 /* Player.swift in Sources */,
-				0ACB48D91D561AAE00D02BF2 /* TeamNamesProtocol.swift in Sources */,
+				0A9E2FE11D5A07AD008CD576 /* PlayerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

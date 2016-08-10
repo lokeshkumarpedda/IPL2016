@@ -2,6 +2,9 @@
 //  PlayerNamesViewController.swift
 //  IPL2016
 //
+
+//Purpose: For displaying player names and images
+
 //  Created by BridgeLabz on 08/08/16.
 //  Copyright © 2016 BridgeLabz. All rights reserved.
 //
@@ -10,14 +13,20 @@ import UIKit
 
 class PlayerNamesViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
+    //creating tableview outlet
     @IBOutlet weak var tableView: UITableView!
+    
     var playerNameViewModelObject : PlayerNamesViewModel!
     var teamNameViewControllerObject : TeamNamesViewController!
+    
+    //storing which player is selected based on the index
+    var selectedPlayer : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         playerNameViewModelObject = PlayerNamesViewModel(obj : self)
         
+        //Getting player information
         playerNameViewModelObject.getData(teamNameViewControllerObject.selectedTeam!)
         
     }
@@ -27,10 +36,15 @@ class PlayerNamesViewController: UIViewController ,UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    
+//MARK: Tableview methods
+    
     //number of rows for table view
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        
         return playerNameViewModelObject.numberOfRows()
+        
     }
     
     //Each cell for tableview
@@ -38,25 +52,52 @@ class PlayerNamesViewController: UIViewController ,UITableViewDelegate, UITableV
     {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        //displaying player name
         cell.textLabel?.text = playerNameViewModelObject.playerName(indexPath.row)
         
+        //for displaying player picture
         cell.imageView?.image = playerNameViewModelObject.profileImage(indexPath.row)
         
         return cell
     }
     
-    //Reloading the tableview when the data comes from the server
-    func reload() {
-        tableView.reloadData()
+    //For knowing which player is selected
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        
+        selectedPlayer = indexPath.row
+        
     }
-    /*
-    // MARK: - Navigation
+    
+    //sending the self object to the next view controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+        //checking for the paticular segue
+        if segue.identifier == "playerInformation"
+        {
+            let temp = segue.destinationViewController as! PlayerInformationViewController
+            temp.playerNamesVCObject = self
+        }
+    }
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    //Reloading the tableview when the data comes from the server
+    func reload()
+    {
+        
+        tableView.reloadData()
+        
     }
-    */
+    
+    //getting player information
+    func playerInfo() -> NSObject?{
+        
+        return playerNameViewModelObject.creatingModel(selectedPlayer!)
+        
+    }
 
 }

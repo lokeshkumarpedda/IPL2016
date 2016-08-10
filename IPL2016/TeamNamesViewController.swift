@@ -2,6 +2,7 @@
 //  ViewController.swift
 //  IPL2016
 //
+
 //Purpose : Displaying all the team Names with there logos
 
 
@@ -16,8 +17,11 @@ class TeamNamesViewController: UIViewController  ,UITableViewDelegate , UITableV
 {
     //creating table outlet
     @IBOutlet weak var tableView: UITableView!
+    
+    //storing the selected team name
     var selectedTeam : String?
     var TeamViewModelObject : TeamNamesViewModel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -35,11 +39,14 @@ class TeamNamesViewController: UIViewController  ,UITableViewDelegate , UITableV
         
     }
     
+//MARK: Tableview methods
     
     //number of rows for table view
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        
         return TeamViewModelObject.numberOfRows()
+        
     }
     
     
@@ -48,18 +55,29 @@ class TeamNamesViewController: UIViewController  ,UITableViewDelegate , UITableV
     {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        //Assigning names to cell
         cell.textLabel?.text = TeamViewModelObject.teamName(indexPath.row)
         
+        //Assiging logo image to the cell
         cell.imageView?.image = TeamViewModelObject.logoImage(indexPath.row)
  
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    //For knowing which team is selected
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        
         selectedTeam = TeamViewModelObject.teamName(indexPath.row)
+        
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    //sending the self object to the next view controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        //checking for a particular segue
         if segue.identifier == "playerSegue"
         {
             let temp = segue.destinationViewController as! PlayerNamesViewController
@@ -67,7 +85,10 @@ class TeamNamesViewController: UIViewController  ,UITableViewDelegate , UITableV
         }
     }
     //Reloading the tableview when the data comes from the server
-    func reload() {
+    func reload()
+    {
+        
         tableView.reloadData()
+        
     }
 }
